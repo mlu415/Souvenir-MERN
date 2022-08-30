@@ -17,9 +17,10 @@ const App = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
 
+    //dispatches changes as soon as currentId is changed
     useEffect(()=> {
         dispatch(getPosts());
-    },[dispatch]);
+    },[currentId,dispatch]);
 
     return(
 
