@@ -1,3 +1,5 @@
+//This file adds in the navigation bar as a seperate component for the website
+//contains the login, title and logo
 import React from "react";
 import { AppBar, Avatar, Button, Toolbar, Typography } from "@material-ui/core";
 import useStyles from './styles'
