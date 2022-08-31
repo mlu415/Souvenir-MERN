@@ -8,7 +8,7 @@ export default (posts = [],action) =>{
             return [...posts,action.payload];    
         case UPDATE:
             //returns updated post if existing otherwise returns post
-            return posts.map((post)=>posts._id ===action.payload._id ? action.payload : post);    
+            return posts.map((post) => (post._id === action.payload._id ? action.payload : post));    
         case DELETE:
             //returns all posts except the one to be deleted
             return posts.filter((post)=> post._id !== action.payload)
