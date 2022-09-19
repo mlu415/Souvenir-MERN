@@ -5,6 +5,9 @@ import {Grid, CircularProgress} from '@material-ui/core'
 
 import useStyles from "./styles"
 
+/*
+Fetches all posts available for the user and maps them into a grid
+*/
 
 const Posts = ({post, setCurrentId}) => {
     const posts = useSelector((state)=> state.posts);

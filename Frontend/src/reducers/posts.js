@@ -3,8 +3,10 @@ import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/actionTypes";
 export default (posts = [],action) =>{
     switch (action.type) {
         case FETCH_ALL:
+            //returns all posts available to the user
             return action.payload;
         case CREATE:
+            //creates a post
             return [...posts,action.payload];    
         case UPDATE:
             //returns updated post if existing otherwise returns post

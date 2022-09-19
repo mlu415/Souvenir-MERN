@@ -10,9 +10,14 @@ import {deletePost, likePost} from '../../../actions/posts'
 import useStyles from "./styles"
 import MoreHoriz from "@material-ui/icons/MoreHoriz";
 
+/*
+Post Layout contains post creator, time since post creation, title, hashtag, thumbs up and delete buttons
+*/
+
 
 const Post = ({post,setCurrentId}) => {
     const classes = useStyles();
+    //uses react redux to dispatch the layout
     const dispatch = useDispatch();
     return (
         <Card className={classes.card}>

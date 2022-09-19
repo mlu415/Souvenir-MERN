@@ -5,6 +5,14 @@ import PostMessage from '../models/postMessage.js';
 
 const router = express.Router();
 
+  /**
+ * fetches all posts from the server
+ * 
+ * TO DO IMPLEMENT AUTH/selective fetch
+ * 
+ * returns the error upon failure
+ */
+
 export const getPosts = async (req, res) => { 
     try {
         const postMessages = await PostMessage.find();
@@ -14,6 +22,8 @@ export const getPosts = async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 }
+
+
 
 export const getPost = async (req, res) => { 
     const { id } = req.params;
@@ -27,6 +37,15 @@ export const getPost = async (req, res) => {
     }
 }
 
+  /**
+ * Creates a post from information filled in the form
+ * 
+ * Inputs information from form
+ * 
+ * creates new postmessage from the information 
+ * 
+ * TO DO IMPLEMENT AUTH/selective fetch
+ */
 export const createPost = async (req, res) => {
     const { title, message, selectedFile, creator, tags } = req.body;
 
@@ -41,6 +60,15 @@ export const createPost = async (req, res) => {
     }
 }
 
+ /*
+ * Updates a post given an id and information filled in the form
+ * 
+ * Input ID
+ * 
+ * Updates post if id is found
+ * 
+ * TO DO IMPLEMENT AUTH/selective fetch
+ */
 export const updatePost = async (req, res) => {
     const { id: _id } = req.params;
     const post = req.body;
@@ -54,6 +82,14 @@ export const updatePost = async (req, res) => {
     res.json(updatedPost);
 }
 
+ /* Deletes a post given an post id
+ * 
+ * Input ID
+ * 
+ * Deletes post if id is found
+ * 
+ * TO DO IMPLEMENT AUTH/selective fetch
+ */
 export const deletePost = async (req, res) => {
     const { id } = req.params;
 
@@ -63,6 +99,16 @@ export const deletePost = async (req, res) => {
 
     res.json({ message: "Post deleted successfully." });
 }
+
+/* Likes a post given an post id
+ * 
+ * Input ID
+ * 
+ * Updates like count by one if id is found
+ * 
+ * TO DO IMPLEMENT AUTH/selective fetch
+ * 
+ */
 
 export const likePost = async (req, res) => {
     const { id } = req.params;
